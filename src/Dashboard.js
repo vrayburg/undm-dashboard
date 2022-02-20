@@ -40,7 +40,7 @@ class Dashboard extends React.Component{
                 <RecentDonations donations={this.state.donations}/>
             </div>
         </Row>
-        <Row style={{display: "inline-block", fontSize: "xxx-large"}}>
+        <Row style={{display: "inline-block"}}>
             <div className="countdown">
                 <span>🚀</span>
                 <Countdown date={new Date("Feb 26, 2022 23:30:00")} daysInHours={true}/>
