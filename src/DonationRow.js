@@ -1,3 +1,14 @@
+const curseWords = ["ass", "fuck", "bitch", "shit", "bastard", "motherfucker", 
+"dick", "asshole", "balls", "hell",
+"asshat", "cum", "jizz", "cumshot", 
+"blowjob", "whore", "cunt", "anus", 
+"butt"];
+
+function containsBadWord(message) {
+    let words = message.toLowerCase().split(" ");
+    return words.some(word => curseWords.includes(word));
+}
+
 function DonationRow(props) {
     return <tr>
         <td>
@@ -13,7 +24,10 @@ function DonationRow(props) {
             ${props.donation.amount}
         </td>
         <td>
-            {props.donation.message ? props.donation.message : "No message!"}
+            {props.donation.message ? (
+            containsBadWord(props.donation.message) ?
+            "⚠️ Watch your language! ⚠️" : props.donation.message)
+            : "No message!"}
         </td>
     </tr>
 }
