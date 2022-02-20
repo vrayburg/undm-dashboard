@@ -18,8 +18,8 @@
 }
 
 .App-header {
-  background-image: url(https://thumbs.gfycat.com/RingedSpicyKodiakbear-size_restricted.gif);
-  background-size: fill;
+  background-image: url(../public/DashboardBackground.gif);
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
