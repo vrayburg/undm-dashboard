@@ -1,6 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Varela+Round&display=swap);
+
 .App {
   text-align: center;
   max-height: 100vh;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .App-logo {
@@ -16,7 +19,7 @@
 
 .App-header {
   background-image: url(https://thumbs.gfycat.com/RingedSpicyKodiakbear-size_restricted.gif);
-  background-size: cover;
+  background-size: fill;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,8 +47,30 @@
   color: black;
 }
 
-.cardFrame {
-  width: 50%;
+.donationTable {
+  width: 100%;
+  text-align: left;
+  font-size: large;
+}
+
+th {
+  font-size: x-large;
+  background-color: rgba(211,211,211,.3);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+td {
+  background-color: rgba(211,211,211,.3);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 5px;
 }
 
 .message {
@@ -55,4 +80,18 @@
 .noMarginAlert {
   margin-bottom: 0% !important;
   opacity: 85%;
+}
+
+.filledRow {
+  width: 100%
+}
+
+span {
+  font-weight: bold;
+  padding: 0;
+}
+
+.countdown {
+  background-color: rgba(211,211,211,.3);
+  border-radius: 10px;
 }

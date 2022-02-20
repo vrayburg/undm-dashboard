@@ -1,4 +1,7 @@
 import React from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import Countdown from "react-countdown";
+import Leaderboard from "./Leaderboard";
 import RecentDonations from "./RecentDonations";
 
 class Dashboard extends React.Component{
@@ -7,7 +10,8 @@ class Dashboard extends React.Component{
         this.state={
             donations: [],
             pollingCount: 0,
-            delay: 600000
+            delay: 600000,
+            teamLeaders: []
         }
 
     }
@@ -25,13 +29,30 @@ class Dashboard extends React.Component{
         this.setState({pollingCount: this.state.pollingCount + 1});
         fetch('https://events.dancemarathon.com/api/events/4589/donations?limit=5')
             .then(response => response.json())
-            .then(data => this.setState({donations: data}));
+            .then(data => {
+                this.setState({donations: data})
+            });
     }
 
     render(){
-        return <div className="cardFrame">
+        return <><Row className="filledRow">
+            <div className="donationTable">
                 <RecentDonations donations={this.state.donations}/>
             </div>
+        </Row>
+        <Row style={{display: "inline-block", fontSize: "xxx-large"}}>
+            <div className="countdown">
+                <span>🚀</span>
+                <Countdown date={new Date("Feb 26, 2022 23:30:00")} daysInHours={true}/>
+                <span style={{padding: 0}}> until Huskerthon blastoff!</span>
+                <span>🚀</span>
+            </div>
+        </Row>
+        {/* <Row>
+            <div className="">
+                <Leaderboard title={"Test"} leaders={this.state.teamLeaders}/>
+            </div>
+        </Row>*/}</>
     }
 }
 
