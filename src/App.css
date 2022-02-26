@@ -54,7 +54,7 @@
 }
 
 th {
-  font-size: x-large;
+  font-size: xx-large;
   background-color: rgba(211,211,211,.3);
   border-radius: 5px;
   padding: 10px;
@@ -65,6 +65,7 @@ td {
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
+  font-size: 150%;
 }
 
 table {
