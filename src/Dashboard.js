@@ -34,7 +34,7 @@ class Dashboard extends React.Component{
             .then(data => {
                 this.setState({donations: data})
                 data.forEach(d => {
-                    if(!this.state.oldDonations.map(o => o.donationID).includes(d.donationID) && d.amount >= 50.0){
+                    if(!this.state.oldDonations.map(o => o.donationID).includes(d.donationID) && d.amount >= 62.0){
                         this.setState({bigDonation: d});
                         document.getElementById('donationAlert').classList.remove("donationAlertHidden");
                         this.start();
