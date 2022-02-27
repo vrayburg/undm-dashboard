@@ -21,7 +21,7 @@ function DonationRow(props) {
             {props.donation.displayName ? props.donation.displayName : "Anonymous"}
         </td>
         <td>
-            ${props.donation.amount}
+            ${props.donation.amount.toFixed(2)}
         </td>
         <td>
             {props.donation.message ? (

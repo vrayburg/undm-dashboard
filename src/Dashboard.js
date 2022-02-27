@@ -11,7 +11,9 @@ class Dashboard extends React.Component{
             donations: [],
             pollingCount: 0,
             delay: 2000,
-            teamLeaders: []
+            teamLeaders: [],
+            oldDonations: [],
+            bigDonation: null
         }
 
     }
@@ -26,17 +28,34 @@ class Dashboard extends React.Component{
     }
 
     poll = () => {
-        this.setState({pollingCount: this.state.pollingCount + 1});
+        this.setState({pollingCount: this.state.pollingCount + 1, oldDonations: this.state.donations});
         fetch('https://events.dancemarathon.com/api/events/4589/donations?limit=5')
             .then(response => response.json())
             .then(data => {
                 this.setState({donations: data})
+                data.forEach(d => {
+                    if(!this.state.oldDonations.map(o => o.donationID).includes(d.donationID) && d.amount >= 100.0){
+                        this.setState({bigDonation: d});
+                        document.getElementById('donationAlert').classList.remove("donationAlertHidden");
+                        this.start();
+                    }
+                });
             });
+    }
+
+    start(){
+        var popup = setInterval(function() {
+            document.getElementById('donationAlert').classList.add("donationAlertHidden");
+            clearInterval(popup);
+        },5000);
     }
 
     render(){
         return <><Row className="filledRow">
             <div className="donationTable">
+                <div className="donationAlert donationAlertHidden" id="donationAlert">
+                    <h1><strong>{this.state.bigDonation ? this.state.bigDonation.recipientName : "Someone"}</strong> is a hero and raised <strong>${this.state.bigDonation ? this.state.bigDonation.amount.toFixed(2) : 0}</strong>!</h1>
+                </div>
                 <RecentDonations donations={this.state.donations}/>
             </div>
         </Row>
