@@ -47,7 +47,7 @@ class Dashboard extends React.Component{
         var popup = setInterval(function() {
             document.getElementById('donationAlert').classList.add("donationAlertHidden");
             clearInterval(popup);
-        },5000);
+        },8000);
     }
 
     render(){
