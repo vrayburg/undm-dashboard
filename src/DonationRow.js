@@ -1,8 +1,4 @@
-const curseWords = ["ass", "fuck", "bitch", "shit", "bastard", "motherfucker", 
-"dick", "asshole", "balls", "hell",
-"asshat", "cum", "jizz", "cumshot", 
-"blowjob", "whore", "cunt", "anus", 
-"butt"];
+const curseWords = [];
 
 function containsBadWord(message) {
     let words = message.toLowerCase().split(" ");
